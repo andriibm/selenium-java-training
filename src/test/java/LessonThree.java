@@ -28,7 +28,7 @@ public class LessonThree {
         ChromeDriverManager.getInstance().setup();
         driver = new ChromeDriver();
         driver.get("http://localhost/litecart/");
-        
+
     }
 
 
