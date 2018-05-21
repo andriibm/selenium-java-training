@@ -22,7 +22,7 @@ public class LessonThree {
     @Before
     public void start() {
 
-        
+
         ChromeOptions opt = new ChromeOptions();
         opt.setHeadless(false);
         ChromeDriverManager.getInstance().setup();
