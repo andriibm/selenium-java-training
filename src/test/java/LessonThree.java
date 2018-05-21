@@ -75,6 +75,7 @@ public class LessonThree {
         itemDiscountPrice = itemDiscountPriceElement.getText();
 
 
+
         Assert.assertTrue(mainProductName.equals(itemProductName));
         System.out.println(itemRegularPriceElement.getCssValue("color"));
         Assert.assertTrue("rgba(102, 102, 102, 1)".equals(itemRegularPriceElement.getCssValue("color")));
