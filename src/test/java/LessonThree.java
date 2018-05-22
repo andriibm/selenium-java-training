@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.List;
 
 public class LessonThree {
 
@@ -51,6 +50,7 @@ public class LessonThree {
         mainProductName = driver.findElement(By.xpath("//div[@id='box-campaigns']/div/ul/li[1]/a/div[@class='name']")).getText();
 
         Assert.assertTrue(Utils.isElementPresent(driver, By.xpath("//div[@id='box-campaigns']/div/ul/li[1]/a/div/s[@class='regular-price']")));
+
         mainRegularPriceElement = driver.findElement(By.xpath("//div[@id='box-campaigns']/div/ul/li[1]/a/div/s[@class='regular-price']"));
         mainDiscountPriceElement = driver.findElement(By.xpath("//div[@id='box-campaigns']/div/ul/li/a/div/strong[@class='campaign-price']"));
         mainRegularPrice = mainRegularPriceElement.getText();
@@ -58,11 +58,11 @@ public class LessonThree {
 
 
 
-        Assert.assertTrue("rgba(119, 119, 119, 1)".equals(mainRegularPriceElement.getCssValue("color")));
+        Assert.assertEquals("rgba(119, 119, 119, 1)", mainRegularPriceElement.getCssValue("color"));
         Assert.assertTrue(mainRegularPriceElement.getCssValue("text-decoration").contains("line-through"));
 
-        Assert.assertTrue("rgba(204, 0, 0, 1)".equals(mainDiscountPriceElement.getCssValue("color")));
-        Assert.assertTrue("700".equals(mainDiscountPriceElement.getCssValue("font-weight")));
+        Assert.assertEquals("rgba(204, 0, 0, 1)", mainDiscountPriceElement.getCssValue("color"));
+        Assert.assertEquals("700", mainDiscountPriceElement.getCssValue("font-weight"));
 
 
 
@@ -74,15 +74,13 @@ public class LessonThree {
         itemRegularPrice = itemRegularPriceElement.getText();
         itemDiscountPrice = itemDiscountPriceElement.getText();
 
+        Assert.assertEquals(mainProductName, itemProductName);
 
-
-        Assert.assertTrue(mainProductName.equals(itemProductName));
-        System.out.println(itemRegularPriceElement.getCssValue("color"));
-        Assert.assertTrue("rgba(102, 102, 102, 1)".equals(itemRegularPriceElement.getCssValue("color")));
+        Assert.assertEquals("rgba(102, 102, 102, 1)", itemRegularPriceElement.getCssValue("color"));
         Assert.assertTrue(itemRegularPriceElement.getCssValue("text-decoration").contains("line-through"));
 
-        Assert.assertTrue("rgba(204, 0, 0, 1)".equals(itemDiscountPriceElement.getCssValue("color")));
-        Assert.assertTrue("700".equals(itemDiscountPriceElement.getCssValue("font-weight")));
+        Assert.assertEquals("rgba(204, 0, 0, 1)", itemDiscountPriceElement.getCssValue("color"));
+        Assert.assertEquals("700", itemDiscountPriceElement.getCssValue("font-weight"));
 
         Assert.assertTrue(mainRegularPrice.equals(itemRegularPrice));
         Assert.assertTrue(mainDiscountPrice.equals(itemDiscountPrice));
