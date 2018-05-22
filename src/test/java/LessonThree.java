@@ -29,8 +29,7 @@ public class LessonThree {
         driver.get("http://localhost/litecart/");
 
     }
-
-
+    
     @Test
     public void testMethod(){
         String mainProductName;
