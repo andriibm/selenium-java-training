@@ -37,14 +37,11 @@ public class LessonTwo {
 
     @Test
     public void testMethod(){
-        WebElement item;
         List<WebElement> items;
         items = driver.findElements(By.xpath("//ul[@id='box-apps-menu']/li"));
-
         System.out.println(items.size());
         for (int i = 1; i <= items.size(); i++){
-            item = driver.findElement(By.xpath(String.format("//ul[@id='box-apps-menu']/li[%d]", i)));
-            item.click();
+            driver.findElement(By.xpath(String.format("//ul[@id='box-apps-menu']/li[%d]", i))).click();
             List<WebElement> subItems = driver.findElements(By.xpath("//ul[@id='box-apps-menu']/li/ul/li"));
             if(subItems.size() != 0){
                 WebElement subItem;
