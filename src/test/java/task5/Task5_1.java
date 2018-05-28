@@ -62,7 +62,7 @@ public class Task5_1 {
         driver.findElement(By.xpath("//input[@type='date' and @name='date_valid_from']")).sendKeys(fromDate);
         driver.findElement(By.xpath("//input[@type='date' and @name='date_valid_to']")).sendKeys(toDate);
 
-        
+
         driver.findElement(By.xpath("//a[text() = 'Information']")).click();
 
         new Select(driver.findElement(By.name("manufacturer_id"))).selectByIndex(1);
