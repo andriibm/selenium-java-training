@@ -9,7 +9,7 @@ public class Utils {
         try {
             driver.findElements(by);
             return true;
-        } catch (org.openqa.selenium.NoSuchElementException e) {
+        } catch (Exception e) {
             return false;
         }
     }
