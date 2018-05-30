@@ -8,8 +8,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -62,15 +64,14 @@ public class task5_2 {
 
         int tableCount = driver.findElements(By.ByClassName.xpath("//table[@class]//tr")).size();
 
-        while (tableCount >= 6){
+        while (!Utils.isElementPresent(driver, By.linkText("<< Back"))){
+            WebElement table = driver.findElement(By.xpath("//table[@class]"));
             driver.findElement(By.name("remove_cart_item")).click();
-            int count = tableCount;
-            wait.until((WebDriver d) -> count > driver.findElements(By.ByClassName.xpath("//table[@class]//tr")).size());
-            tableCount = driver.findElements(By.ByClassName.xpath("//table[@class]//tr")).size();
+            wait.until(ExpectedConditions.stalenessOf(table));
         }
 
-        wait.until((WebDriver d) -> Utils.isElementPresent(d, By.linkText("<< Back")));
         driver.findElement(By.linkText("<< Back")).click();
+
 
         System.out.println(driver.findElement(By.xpath("//div[@id='cart']//span[@class='quantity']")).getText());
         Assert.assertEquals("0", driver.findElement(By.xpath("//div[@id='cart']//span[@class='quantity']")).getText());
