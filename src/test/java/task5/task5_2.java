@@ -49,20 +49,16 @@ public class task5_2 {
 
             driver.findElement(By.name("add_cart_product")).click();
 
-
             wait.until((WebDriver d) -> cartCountBefore != Integer.parseInt(d.findElement(By.xpath("//div[@id='cart']//span[@class='quantity']")).getText()));
 
             int cartCountAfter = Integer.parseInt(driver.findElement(By.xpath("//div[@id='cart']//span[@class='quantity']")).getText());
-
-
+            
             Assert.assertEquals(cartCountAfter - cartCountBefore, 1);
 
             driver.get("http://localhost/litecart/");
         }
 
         driver.findElement(By.linkText("Checkout »")).click();
-
-        int tableCount = driver.findElements(By.ByClassName.xpath("//table[@class]//tr")).size();
 
         while (!Utils.isElementPresent(driver, By.linkText("<< Back"))){
             WebElement table = driver.findElement(By.xpath("//table[@class]"));
@@ -72,8 +68,6 @@ public class task5_2 {
 
         driver.findElement(By.linkText("<< Back")).click();
 
-
-        System.out.println(driver.findElement(By.xpath("//div[@id='cart']//span[@class='quantity']")).getText());
         Assert.assertEquals("0", driver.findElement(By.xpath("//div[@id='cart']//span[@class='quantity']")).getText());
 
 
