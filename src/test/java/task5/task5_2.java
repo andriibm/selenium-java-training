@@ -52,7 +52,7 @@ public class task5_2 {
             wait.until((WebDriver d) -> cartCountBefore != Integer.parseInt(d.findElement(By.xpath("//div[@id='cart']//span[@class='quantity']")).getText()));
 
             int cartCountAfter = Integer.parseInt(driver.findElement(By.xpath("//div[@id='cart']//span[@class='quantity']")).getText());
-            
+
             Assert.assertEquals(cartCountAfter - cartCountBefore, 1);
 
             driver.get("http://localhost/litecart/");
