@@ -13,12 +13,12 @@ public class FindElementListener extends AbstractWebDriverEventListener {
 
     @Override
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-        System.out.println("Before find by: " + by);
+        System.out.println("Trying find " + by);
     }
 
     @Override
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
-        System.out.println("After find by: " + by);
+        System.out.println("Found " + by);
     }
 
     @Override

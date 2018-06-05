@@ -1,31 +1,34 @@
 package task7;
 import framework.admin.Admin;
 import framework.utils.Utils;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 
 public class Task7 {
 
     private EventFiringWebDriver edr;
+    private RemoteWebDriver rwd;
 
 
 
     @Before
-    public void start() {
+    public void start() throws IOException {
 
-        ChromeDriverManager.getInstance().setup();
-        edr = new EventFiringWebDriver(new ChromeDriver());
+        rwd = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
+        edr = new EventFiringWebDriver(rwd);
         edr.register(new FindElementListener());
+
         edr.get("http://localhost/litecart/admin/");
         Admin.login(edr, "admin", "admin");
 
