@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
-public class LessonTwo {
+public class Task3 {
 
     private WebDriver driver;
 
