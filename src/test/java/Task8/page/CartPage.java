@@ -24,7 +24,7 @@ public class CartPage extends PageBase {
 
     public CartPage removeAllProducts() {
         open();
-        while (isElementPresent(By.linkText("<< Back"))){
+        while (!isElementPresent(By.linkText("<< Back"))){
             WebElement table = driver.findElement(By.xpath("//table[@class]"));
             driver.findElement(By.name("remove_cart_item")).click();
             wait.until(ExpectedConditions.stalenessOf(table));

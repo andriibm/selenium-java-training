@@ -12,7 +12,7 @@ public class MainPage extends PageBase {
 
     private boolean isOnThisPage() {
 //        wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Checkout »")));
-        return isElementPresent(By.linkText("Checkout »"));
+        return isElementPresent(By.id("box-latest-products"));
     }
 
     public MainPage open() {

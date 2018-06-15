@@ -1,6 +1,5 @@
 package Task8.app;
 
-import Task8.Task8;
 import Task8.page.CartPage;
 import Task8.page.MainPage;
 import Task8.page.ProductPage;

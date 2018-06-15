@@ -1,4 +1,4 @@
-package Task8;
+package Task8.test;
 
 import Task8.app.Application;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
